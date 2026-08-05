@@ -1,0 +1,9 @@
+# Trained model files will appear here after running:
+#   python ml/train_model.py
+#
+# Expected outputs:
+# - health_risk_model.joblib
+# - metrics.json
+# - feature_importance.csv
+# - submission.csv (after prepare_submission.py)
+# - eda_plots/ (after eda_analysis.py)
