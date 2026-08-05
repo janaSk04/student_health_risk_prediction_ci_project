@@ -1,0 +1,43 @@
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Student wellness intelligence</p>
+    <h1>VitalTrack</h1>
+    <p class="lead">
+      Predict student health risk from lifestyle signals using a Random Forest
+      model trained on the 2026 Kaggle Playground Series dataset.
+    </p>
+    <div class="cta-row">
+      <a routerLink="/predict" class="btn primary">Start prediction</a>
+      <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noopener" class="btn ghost">
+        API docs
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-panel" aria-hidden="true">
+    <div class="orb"></div>
+    <ul>
+      <li>Balanced lifestyle scoring</li>
+      <li>Sleep · activity · diet · stress</li>
+      <li>Clear risk labels for action</li>
+    </ul>
+  </div>
+</section>
+
+<section class="how">
+  <h2>How it works</h2>
+  <div class="steps">
+    <article>
+      <h3>1. Enter lifestyle data</h3>
+      <p>Fill sleep, BMI, steps, stress and other student health features.</p>
+    </article>
+    <article>
+      <h3>2. API runs the model</h3>
+      <p>Angular sends the form to a Python FastAPI service with the trained pipeline.</p>
+    </article>
+    <article>
+      <h3>3. Get a clear label</h3>
+      <p>Receive <strong>fit</strong>, <strong>at-risk</strong>, or <strong>unhealthy</strong> with class probabilities.</p>
+    </article>
+  </div>
+</section>

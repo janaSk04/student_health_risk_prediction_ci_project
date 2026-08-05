@@ -1,0 +1,143 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  padding: 4.5rem 6vw 2.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: var(--accent-dark);
+  margin: 0 0 0.8rem;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  line-height: 1.02;
+  margin: 0 0 1rem;
+}
+
+.lead {
+  max-width: 36rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn.ghost {
+  border-color: rgba(15, 122, 95, 0.35);
+  color: var(--accent-dark);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.hero-panel {
+  position: relative;
+  min-height: 280px;
+  border-radius: 28px;
+  padding: 1.6rem;
+  background: linear-gradient(145deg, #0f7a5f, #1f4d43);
+  color: #f4fff9;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -30px;
+  top: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f3e7c8, transparent 70%);
+  opacity: 0.7;
+  animation: float 5s ease-in-out infinite;
+}
+
+.hero-panel ul {
+  position: relative;
+  z-index: 1;
+  margin: 4.5rem 0 0;
+  padding-left: 1.1rem;
+  line-height: 1.9;
+}
+
+.how {
+  padding: 1rem 6vw 3.5rem;
+}
+
+.how h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.steps article {
+  background: var(--card);
+  border: 1px solid rgba(20, 53, 45, 0.08);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.steps h3 {
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+.steps p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

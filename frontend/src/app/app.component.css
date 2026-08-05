@@ -1,0 +1,55 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 6vw;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(238, 246, 242, 0.75);
+  border-bottom: 1px solid rgba(20, 53, 45, 0.08);
+  z-index: 10;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a.active,
+nav a:hover {
+  background: rgba(15, 122, 95, 0.12);
+  color: var(--accent-dark);
+}
+
+main {
+  min-height: calc(100vh - 140px);
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 1.5rem 1rem 2rem;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

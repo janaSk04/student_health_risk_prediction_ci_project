@@ -1,0 +1,129 @@
+<section class="predict-page">
+  <div class="intro">
+    <h1>Predict student health risk</h1>
+    <p>
+      Enter lifestyle features below. The Angular form calls the Python API,
+      which runs the trained Random Forest pipeline and returns a class label.
+    </p>
+  </div>
+
+  <form class="form-panel" (ngSubmit)="onSubmit()" #healthForm="ngForm">
+    <div class="grid">
+      <label>
+        Sleep duration (hours)
+        <input type="number" step="0.1" name="sleep_duration" [(ngModel)]="form.sleep_duration" required />
+      </label>
+
+      <label>
+        Heart rate (bpm)
+        <input type="number" step="0.1" name="heart_rate" [(ngModel)]="form.heart_rate" required />
+      </label>
+
+      <label>
+        BMI
+        <input type="number" step="0.01" name="bmi" [(ngModel)]="form.bmi" required />
+      </label>
+
+      <label>
+        Calorie expenditure
+        <input type="number" step="1" name="calorie_expenditure" [(ngModel)]="form.calorie_expenditure" required />
+      </label>
+
+      <label>
+        Step count
+        <input type="number" step="1" name="step_count" [(ngModel)]="form.step_count" required />
+      </label>
+
+      <label>
+        Exercise duration (minutes)
+        <input type="number" step="0.1" name="exercise_duration" [(ngModel)]="form.exercise_duration" required />
+      </label>
+
+      <label>
+        Water intake (litres)
+        <input type="number" step="0.01" name="water_intake" [(ngModel)]="form.water_intake" required />
+      </label>
+
+      <label>
+        Diet type
+        <select name="diet_type" [(ngModel)]="form.diet_type" required>
+          <option value="veg">veg</option>
+          <option value="non-veg">non-veg</option>
+          <option value="balanced">balanced</option>
+        </select>
+      </label>
+
+      <label>
+        Stress level
+        <select name="stress_level" [(ngModel)]="form.stress_level" required>
+          <option value="low">low</option>
+          <option value="medium">medium</option>
+          <option value="high">high</option>
+        </select>
+      </label>
+
+      <label>
+        Sleep quality
+        <select name="sleep_quality" [(ngModel)]="form.sleep_quality" required>
+          <option value="poor">poor</option>
+          <option value="average">average</option>
+          <option value="good">good</option>
+        </select>
+      </label>
+
+      <label>
+        Physical activity level
+        <select name="physical_activity_level" [(ngModel)]="form.physical_activity_level" required>
+          <option value="sedentary">sedentary</option>
+          <option value="moderate">moderate</option>
+          <option value="active">active</option>
+        </select>
+      </label>
+
+      <label>
+        Smoking / alcohol
+        <select name="smoking_alcohol" [(ngModel)]="form.smoking_alcohol" required>
+          <option value="no">no</option>
+          <option value="occasional">occasional</option>
+          <option value="yes">yes</option>
+        </select>
+      </label>
+
+      <label>
+        Gender
+        <select name="gender" [(ngModel)]="form.gender" required>
+          <option value="female">female</option>
+          <option value="male">male</option>
+          <option value="other">other</option>
+        </select>
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="loading || healthForm.invalid">
+      {{ loading ? 'Predicting...' : 'Predict health condition' }}
+    </button>
+  </form>
+
+  <div class="status-area" *ngIf="loading">
+    <div class="spinner" aria-label="Loading"></div>
+    <p>Running model inference through FastAPI...</p>
+  </div>
+
+  <div class="error" *ngIf="errorMessage">
+    <strong>Error:</strong> {{ errorMessage }}
+  </div>
+
+  <div class="result" *ngIf="result" [class]="resultClass()">
+    <h2>Prediction result</h2>
+    <p class="label">{{ result.health_condition }}</p>
+    <p class="message">{{ result.message }}</p>
+
+    <h3>Class probabilities</h3>
+    <ul>
+      <li *ngFor="let item of result.probabilities | keyvalue">
+        <span>{{ item.key }}</span>
+        <strong>{{ (item.value * 100) | number: '1.1-1' }}%</strong>
+      </li>
+    </ul>
+  </div>
+</section>

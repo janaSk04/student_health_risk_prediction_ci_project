@@ -1,0 +1,15 @@
+<header class="topbar">
+  <a routerLink="/" class="brand">VitalTrack</a>
+  <nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/predict" routerLinkActive="active">Predict</a>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+  <p>Kaggle Playground Series 2026 · Student health risk prediction · Random Forest API</p>
+</footer>
